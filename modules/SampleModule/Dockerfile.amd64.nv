@@ -1,0 +1,2 @@
+FROM docker.io/nvidia/cuda:latest
+CMD nvidia-smi
