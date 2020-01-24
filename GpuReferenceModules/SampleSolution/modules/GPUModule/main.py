@@ -8,9 +8,12 @@ import sys
 import asyncio
 from six.moves import input
 import threading
+import random
 from azure.iot.device import Message
 from azure.iot.device.aio import IoTHubModuleClient
 from utility import benchmark_tf,benchmark_pt
+
+import sys
 
 # global counters
 RUNEXECUTION_COUNT = 0
@@ -32,7 +35,11 @@ async def main():
         # connect the client.
         await module_client.connect()
 
-        #
+        ## update the reported properties
+        reported_properties = {"temperature": random.randint(320, 800) / 10}
+        print("Setting reported temperature to {}".format(reported_properties["temperature"]))
+        await module_client.patch_twin_reported_properties(reported_properties)
+
 
         # define behavior for receiving an input message on input1
         async def input1_listener(module_client):
