@@ -3,10 +3,10 @@
 ### Overview
 In this article you'll learn how to:
   - Deploy a GPU module to an IoT Edge VM on Azure Stack Hub
-  - Benchmark processing times for GPUs in comparison to CPUs
+  - Benchmark processing times for GPUs and CPUs
 
 ### Included Models
-This sample includes PyTorch and TensorFlow models that...
+This sample includes PyTorch and TensorFlow benchmarking sample code for CPU against GPU
 
 ## How to run this sample
 ### Prerequisites
