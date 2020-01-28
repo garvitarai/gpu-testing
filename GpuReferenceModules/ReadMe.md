@@ -1,29 +1,12 @@
-## On host 
-
-  please make sure you have VScode and can build and deploy python on Iot Edge devices as per instruction below
-    https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-python-module
-  Please change env file to your contianer registry credentials build and deploy ...
-  
-  Update/Create .env file at the same location where you have deolyment.template.json with the values for your container registry. Refer to Create a container registry for more detail about ACR  settings.
-  
-        REGISTRY_NAME=<YourAcrUri>
-        REGISTRY_USER_NAME=<YourAcrUserName>
-        REGISTRY_PASSWORD=<YourAcrPassword>
-    
-### Setup to build and push from device to azure container registry
-Sign in to your Azure Container Registry by entering the following command in the Visual Studio Code integrated terminal (replace <REGISTRY_USER_NAME>, <REGISTRY_PASSWORD>, and <REGISTRY_NAME> to your container registry values set in the .env file).
-
-    docker login -u <REGISTRY_USER_NAME> -p <REGISTRY_PASSWORD> <REGISTRY_NAME>.azurecr.io
-
-# Deploy a GPU Modle on Azure Stack Hub
+# Deploy a GPU enabled IoT Module on Azure Stack Hub
 ## About this sample
 ### Overview
-This sample will help you deploy a solution that does rapid
-inferencing on an Azure Data Box Edge or an Azure Stack with an IoT Edge VM.
+In this article you'll learn how to:
+  - Deploy a GPU module to an IoT Edge VM on Azure Stack Hub
+  - Benchmark processing times for GPUs in comparison to CPUs
 
 ### Included Models
-This sample includes containers with models ...
-
+This sample includes PyTorch and TensorFlow models that
 
 ## How to run this sample
 ### Prerequisites
@@ -56,18 +39,21 @@ Before you begin, make sure you have:
 ```
 ## Configure and Build Containers
 1.  Open the “edge-ai-void-detection” folder in Visual Studio Code.
-2.  Fill in the values in the .env.template file with your ACR credentials, 
-	ACR registry name.
+2.  Fill in the values in the .env.template file for your ACR.
+```
+        REGISTRY_NAME=<YourAcrUri>
+        REGISTRY_USER_NAME=<YourAcrUserName>
+        REGISTRY_PASSWORD=<YourAcrPassword>
+```
 3.  Rename the file to ".env".
 4.  Sign into Docker by entering the following command in the Visual
-    Studio Code integrated terminal. Push your module image to your
-    Azure container registry. Use the username, password, and login
+    Studio Code integrated terminal. Use the username, password, and login
     server that you copied from your Azure container registry in the
     first section. You can also retrieve these values from the Access
-    keys section of your registry in the Azure portal.  
-
+    Keys section of your registry in the Azure portal.  
+```
       docker login -u <REGISTRY_USER_NAME> -p <REGISTRY_PASSWORD> <REGISTRY_NAME>.azurecr.io
-      
+```
 5.  In the VS Code explorer, right-click the deployment.iotedgevm.template.json
     file and select Build and Push IoT Edge solution.
 
