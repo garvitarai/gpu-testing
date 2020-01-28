@@ -6,7 +6,7 @@ In this article you'll learn how to:
   - Benchmark processing times for GPUs in comparison to CPUs
 
 ### Included Models
-This sample includes PyTorch and TensorFlow models that
+This sample includes PyTorch and TensorFlow models that...
 
 ## How to run this sample
 ### Prerequisites
@@ -16,20 +16,20 @@ Before you begin, make sure you have:
 
   - An Azure subscription
       - If you don't have an Azure subscription, create a free account
-        before you begin.
-      - An Azure Container Registry (ACR).
+        before you begin
+      - An Azure Container Registry (ACR)
           - **Make a note of the ACR login server, username, and
-            password.**
+            password**
   - A camera that presents an HTTP or RTSP endpoint for getting images.
   - The following development resources:
-      - Azure CLI 2.0    
-      - Docker CE.    
-      - Visual Studio Code.    
-      - Azure IoT Tools for Visual Studio Code.    
-      - Python extension for Visual Studio Code.    
+      - Azure CLI 2.0   
+      - Docker CE 
+      - Visual Studio Code  
+      - Azure IoT Tools for Visual Studio Code    
+      - Python extension for Visual Studio Code    
       - Python    
       - Pip for installing Python packages (typically included with your
-        Python installation).
+        Python installation)
 
 ## Get the Code
 
@@ -38,7 +38,7 @@ Before you begin, make sure you have:
   git clone https://github.com/garvitarai/gpu-testing/tree/yadavmchanges/GpuReferenceModules
 ```
 ## Configure and Build Containers
-1.  Open the “edge-ai-void-detection” folder in Visual Studio Code.
+1.  Open the “GpuReferenceModules” folder in Visual Studio Code.
 2.  Fill in the values in the .env.template file for your ACR.
 ```
         REGISTRY_NAME=<YourAcrUri>
@@ -56,6 +56,14 @@ Before you begin, make sure you have:
 ```
 5.  In the VS Code explorer, right-click the deployment.iotedgevm.template.json
     file and select Build and Push IoT Edge solution.
+
+## Setup Monitoring 
+
+1.  Download Azure IoT Explorer, and connect the application to your IoT Hub.
+
+2.  Select your IoT Device and navigate to Telemetry from the navigation menu.
+
+3. Press Start to begin monitoring output from the IoT Edge Device.
 
 ## Deploy to Azure Stack
 
@@ -79,11 +87,7 @@ receive the deployment.
     Select Edge Deployment Manifest. Do not use the
     `deployment.template.json` file.
 
-6.  Click the refresh button. You should see \[modules running\]
-
-## Test Your Solution
-
-1.  Download Azure IoT Explorer
+6.  Click the refresh button. You should see GPUModule running.
 
 # Next Steps
 
